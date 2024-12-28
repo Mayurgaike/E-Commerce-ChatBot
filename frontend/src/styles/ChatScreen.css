@@ -12,12 +12,17 @@
 }
 
 .brand-symbol {
+  display: flex;
   font-size: 18px;
   font-weight: bold;
   color: black;
   position: absolute;
   top: 10px;
   left: 10px;
+}
+
+.brand-symbol p{
+  margin-top: .5rem;
 }
 
 /* Chat Messages Section */

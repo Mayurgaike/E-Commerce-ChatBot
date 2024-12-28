@@ -1,36 +1,77 @@
 .home-screen {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-  }
-  
-  .input-container {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    display: flex;
-    padding: 10px;
-  }
-  
-  input {
-    flex: 1;
-    padding: 10px;
-    border-radius: 20px;
-    border: 1px solid #676c68;
-    margin-right: 10px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: none;
-    background-color: #676c68;
-    color: white;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #5a5f5d;
-  }
+  font-family: "Gloock", serif;
+  background-color: #cacfcb;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.brand-title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#E-commerce{
+  margin-top: 10rem;
+  font-weight: bold;
+  font-size: 6rem;
+}
+
+#chatbot{
+  margin-top: -7rem;
+  font-weight: bold;
+  font-size: 6rem;
+}
+
+#help-you{
+  margin-top: -6rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Input Section */
+.input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #cacfcb;
+  border-top: 1px solid #d9d9d9;
+}
+
+.input-container input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 25px;
+  font-family: "Gloock", serif;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.input-container button {
+  background-color: #d9d9d9;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.input-container button:hover {
+  background-color: #bfbfbf;
+}
+
+.send-icon {
+  width: 20px;
+  height: 20px;
+}
   

@@ -1,65 +1,187 @@
-/* General Reset */
+:root {
+  --primary-bg: #CACFCB;
+  --text-color: #000;
+  --input-bg: #E8E3E3;
+  --button-bg: #8D8D8D;
+  --button-hover-bg: #555;
+  --font-family: "Gloock", serif;
+}
+
 body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Gloock', serif;
-    background-color: #CACFCB;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--primary-bg);
+  overflow: hidden;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+#E-commerce-login {
+  font-weight: bold;
+  font-size: 50px;
+  margin-top: -3rem;
+}
+
+#chatbot-login {
+  font-weight: bold;
+  font-size: 50px;
+  margin-top: -3rem;
+}
+
+.form-container {
+  background-color: #D9D9D9;
+  padding: 20px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin-top: -2rem;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  margin-left: 3rem;
+  font-size: large;
+  text-align: left;
+}
+
+.input-group input {
+  width: 300px; /* Fixed width */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: var(--input-bg);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  width: 300px; /* Matches input field width */
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--button-bg);
+  color: var(--input-bg);
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.btn:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.footer-text {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.link {
+  color: var(--text-color);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small screens (phones) */
+@media (max-width: 600px) {
+  .input-group input,
+  .btn {
+    width: 90%; /* Make both input and button responsive */
   }
-  
-  .login-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #CACFCB;
+
+  #E-commerce-login,
+  #chatbot-login {
+    font-size: 32px;
+    margin-top: -2rem;
   }
-  
-  .login-container {
-    width: 300px;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    text-align: center;
+
+  .form-container {
+    margin-top: .5rem;
+    padding: 15px 20px;
+    box-shadow: none;
+    border-radius: 5px;
   }
-  
-  .login-container h1 {
-    margin-bottom: 20px;
-    color: black;
-  }
-  
-  .input-group {
-    margin-bottom: 15px;
-    text-align: left;
-  }
-  
+
   .input-group label {
     display: block;
     margin-bottom: 5px;
-    color: black;
+    font-weight: bold;
+    margin-left: 1.5rem;
+    font-size: large;
+    text-align: left;
   }
-  
-  .input-group input {
-    width: 100%;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #676C68;
-    border-radius: 4px;
-    background-color: #D9D9D9;
+
+  .footer-text {
+    font-size: 12px;
   }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    color: white;
-    background-color: #676C68;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .input-group input,
+  .btn {
+    width: 80%; /* Adjust width for tablets */
   }
-  
-  button:hover {
-    background-color: #505350;
+
+  #E-commerce-login,
+  #chatbot-login {
+    font-size: 40px;
+    margin-top: -3rem;
   }
-  
+
+  .form-container {
+    padding: 20px;
+  }
+
+  .footer-text {
+    font-size: 13px;
+  }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 1025px) {
+  .input-group input,
+  .btn {
+    width: 300px; /* Fixed width for desktops */
+  }
+
+  #E-commerce-login,
+  #chatbot-login {
+    font-size: 50px;
+    margin-top: -3rem;
+  }
+
+  .form-container {
+    max-width: 400px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+  }
+}

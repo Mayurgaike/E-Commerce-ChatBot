@@ -2,29 +2,22 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/LoginPage.css';
 
-const LoginPage = () => {
+const SignUpPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
-    const validUsername = 'admin';
-    const validPassword = 'password';
-
-    if (username === validUsername && password === validPassword) {
-      navigate('/home');
-    } else {
-      alert('Invalid Username or Password');
-    }
+    alert('Sign up functionality coming soon!');
   };
 
   return (
     <div className="login-page">
-      <p id='E-commerce-login'>E-Commerce</p>
-      <p id='chatbot-login'>ChatBot</p>
+        <p id='E-commerce-login'>E-Commerce</p>
+        <p id='chatbot-login'>ChatBot</p>
       <div className="form-container">
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleSignUp}>
           <div className="input-group">
             <label htmlFor="username">Username</label>
             <input
@@ -47,14 +40,14 @@ const LoginPage = () => {
               required
             />
           </div>
-          <button type="submit" className="btn login-btn">Login</button>
+          <button type="submit" className="btn signup-btn">Sign Up</button>
         </form>
         <p className="footer-text">
-          New user? <span className="link" onClick={() => navigate('/signup')}>Register here!</span>
+          Already registered? <span className="link" onClick={() => navigate('/login')}>Login here!</span>
         </p>
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

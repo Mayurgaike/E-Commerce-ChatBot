@@ -69,7 +69,7 @@ const ChatScreen = () => {
 
   return (
     <div className="chat-screen">
-      <div className="brand-symbol">E-Commerce ChatBot</div>
+      <div className="brand-symbol"><img src={chatbotIcon} alt="Bot" className="profile-icon" /><p>E-Commerce ChatBot</p></div>
       <div className="chat-messages">
         {conversation.map((chat, index) => (
           <div

@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import sendButton from "../icons/sendButton.png";
+import "../styles/HomeScreen.css";
 
 const HomeScreen = () => {
   const navigate = useNavigate();
@@ -21,6 +23,12 @@ const HomeScreen = () => {
 
   return (
     <div className="home-screen">
+      <div className="brand-title">
+        <p id='E-commerce'>E-Commerce</p>
+        <p id='chatbot'>ChatBot</p>
+        <p id='help-you'>How can I help you today!?</p>
+      </div>
+      <div className="input-container">
       <input
         type="text"
         placeholder="Type a message..."
@@ -28,7 +36,10 @@ const HomeScreen = () => {
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={handleKeyPress} // Listen for Enter key
       />
-      <button onClick={handleSendMessage}>Send</button>
+      <button onClick={handleSendMessage}>
+        <img src={sendButton} alt="Send" className="send-icon" />
+      </button>
+      </div>
     </div>
   );
 };
