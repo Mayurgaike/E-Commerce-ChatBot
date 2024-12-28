@@ -10,26 +10,26 @@
   position: relative;
 }
 
-.brand-title{
+.brand-title {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-#E-commerce{
+#E-commerce {
   margin-top: 10rem;
   font-weight: bold;
   font-size: 6rem;
 }
 
-#chatbot{
+#chatbot {
   margin-top: -7rem;
   font-weight: bold;
   font-size: 6rem;
 }
 
-#help-you{
+#help-you {
   margin-top: -6rem;
   font-weight: bold;
   font-size: 1rem;
@@ -74,4 +74,104 @@
   width: 20px;
   height: 20px;
 }
-  
+
+/* Media Queries for Responsiveness */
+
+/* For small devices like mobile (max-width: 767px) */
+@media screen and (max-width: 767px) {
+  #E-commerce {
+    font-size: 3rem !important;  /* Reduced size for small screens */
+    margin-top: 5rem !important;
+  }
+
+  #chatbot {
+    font-size: 3rem !important;  /* Reduced size for small screens */
+    margin-top: -4rem !important;
+  }
+
+  #help-you {
+    font-size: 1rem !important;
+    margin-top: -3rem !important;
+  }
+
+  .input-container input {
+    font-size: 14px !important;
+    padding: 8px !important;
+  }
+
+  .input-container button {
+    width: 35px !important;
+    height: 35px !important;
+  }
+
+  .send-icon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+}
+
+/* For medium devices like tablet (768px to 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  #E-commerce {
+    font-size: 4.5rem !important;  /* Reduced size for tablet */
+    margin-top: 8rem !important;
+  }
+
+  #chatbot {
+    font-size: 4.5rem !important;  /* Reduced size for tablet */
+    margin-top: -6rem !important;
+  }
+
+  #help-you {
+    font-size: 1rem !important;
+    margin-top: -5rem !important;
+  }
+
+  .input-container input {
+    font-size: 15px !important;
+    padding: 9px !important;
+  }
+
+  .input-container button {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .send-icon {
+    width: 19px !important;
+    height: 19px !important;
+  }
+}
+
+/* For large devices (1025px and above) */
+@media screen and (min-width: 1025px) {
+  #E-commerce {
+    font-size: 6rem !important;
+    margin-top: 10rem !important;
+  }
+
+  #chatbot {
+    font-size: 6rem !important;
+    margin-top: -7rem !important;
+  }
+
+  #help-you {
+    font-size: 1rem !important;
+    margin-top: -6rem !important;
+  }
+
+  .input-container input {
+    font-size: 16px !important;
+    padding: 10px !important;
+  }
+
+  .input-container button {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .send-icon {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}

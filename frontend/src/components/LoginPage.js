@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'; // Import axios for HTTP requests
 import '../styles/LoginPage.css';
 
 const LoginPage = () => {
@@ -7,15 +8,27 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const validUsername = 'admin';
-    const validPassword = 'password';
-
-    if (username === validUsername && password === validPassword) {
-      navigate('/home');
-    } else {
-      alert('Invalid Username or Password');
+    
+    try {
+      const response = await axios.post('http://localhost:5000/login', {
+        username,
+        password,
+      });
+      
+      if (response.data.status === 'success') {
+        navigate('/home');
+      }
+      if (response.data.status === 'error1') {
+        alert('Invalid Username or Password');
+      }  
+      // else {
+      //   alert('Invalid Username or Password');
+      // }
+    } catch (error) {
+      console.error('Error during login:', error);
+      alert('An error occurred. Please try again.');
     }
   };
 

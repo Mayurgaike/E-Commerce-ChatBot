@@ -2,22 +2,41 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/LoginPage.css';
 
-const SignUpPage = () => {
+const Signup = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    alert('Sign up functionality coming soon!');
+  const handleSignup = async (e) => {
+    e.preventDefault(); // Prevent form submission
+
+    try {
+      const response = await fetch('http://localhost:5000/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await response.json();
+
+      if (data.status === 'success') {
+        alert("Successfully registered! Please Login using your Username and Password")
+        navigate("/login");
+      } else {
+        setErrorMessage(data.message);
+      }
+    } catch (error) {
+      setErrorMessage('Something went wrong. Please try again.');
+    }
   };
 
   return (
     <div className="login-page">
-        <p id='E-commerce-login'>E-Commerce</p>
-        <p id='chatbot-login'>ChatBot</p>
+      <p id='E-commerce-login'>E-Commerce</p>
+      <p id='chatbot-login'>ChatBot</p>
       <div className="form-container">
-        <form onSubmit={handleSignUp}>
+        <form onSubmit={handleSignup}>
           <div className="input-group">
             <label htmlFor="username">Username</label>
             <input
@@ -42,6 +61,7 @@ const SignUpPage = () => {
           </div>
           <button type="submit" className="btn signup-btn">Sign Up</button>
         </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <p className="footer-text">
           Already registered? <span className="link" onClick={() => navigate('/login')}>Login here!</span>
         </p>
@@ -50,4 +70,4 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default Signup;

@@ -106,6 +106,13 @@ h1 {
   text-decoration: underline;
 }
 
+/* Example error message styling */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
 /* Media Queries for Responsiveness */
 
 /* Small screens (phones) */

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import axios from "axios"; // Import axios to handle the backend request
 import "../styles/ChatScreen.css";
 import userIcon from "../icons/user.png";
 import chatbotIcon from "../icons/chatbot.png";
@@ -11,7 +12,9 @@ const ChatScreen = () => {
   const [conversation, setConversation] = useState([]);
   const [message, setMessage] = useState("");
   const initialMessageProcessed = useRef(false);
+  const chatEndRef = useRef(null); // Reference for scrolling to the end
 
+  // Effect to process the initial user message and load bot's response based on the message
   useEffect(() => {
     if (initialUserMessage && !initialMessageProcessed.current) {
       const userTimestamp = new Date().toLocaleTimeString();
@@ -20,56 +23,105 @@ const ChatScreen = () => {
         { type: "user", message: initialUserMessage, timestamp: userTimestamp },
       ]);
 
-      setTimeout(() => {
-        const botTimestamp = new Date().toLocaleTimeString();
-        setConversation((prev) => [
-          ...prev,
-          {
-            type: "bot",
-            message: "Hey There! How can I help you today?",
-            timestamp: botTimestamp,
-          },
-        ]);
+      // Send the user's message to the bot and get a proper response
+      setTimeout(async () => {
+        try {
+          const response = await axios.post("http://localhost:5000/chat", {
+            message: initialUserMessage,
+          });
+
+          const botTimestamp = new Date().toLocaleTimeString();
+          const botMessage = response.data.response; // Assuming response has 'response' field
+
+          setConversation((prev) => [
+            ...prev,
+            {
+              type: "bot",
+              message: botMessage,
+              timestamp: botTimestamp,
+            },
+          ]);
+        } catch (error) {
+          console.error("Error during chat request:", error);
+          const botTimestamp = new Date().toLocaleTimeString();
+          setConversation((prev) => [
+            ...prev,
+            {
+              type: "bot",
+              message: "Sorry, something went wrong. Please try again later.",
+              timestamp: botTimestamp,
+            },
+          ]);
+        }
       }, 500);
 
       initialMessageProcessed.current = true;
     }
   }, [initialUserMessage]);
 
-  const handleSendMessage = () => {
+  // Function to handle sending message to backend and updating conversation
+  const handleSendMessage = async () => {
     if (message.trim() !== "") {
       const userTimestamp = new Date().toLocaleTimeString();
       setConversation((prev) => [
         ...prev,
         { type: "user", message, timestamp: userTimestamp },
       ]);
-      setMessage("");
+      setMessage(""); // Clear message input
 
-      setTimeout(() => {
+      try {
+        const response = await axios.post("http://localhost:5000/chat", {
+          message,
+        });
+
+        const botTimestamp = new Date().toLocaleTimeString();
+        const botMessage = response.data.response; // Assuming response has 'response' field
+
+        setConversation((prev) => [
+          ...prev,
+          {
+            type: "bot",
+            message: botMessage,
+            timestamp: botTimestamp,
+          },
+        ]);
+      } catch (error) {
+        console.error("Error during chat request:", error);
         const botTimestamp = new Date().toLocaleTimeString();
         setConversation((prev) => [
           ...prev,
           {
             type: "bot",
-            message: "Here are some suggestions for you!",
+            message: "Sorry, something went wrong. Please try again later.",
             timestamp: botTimestamp,
           },
         ]);
-      }, 500);
+      }
     } else {
       alert("Please enter a message!");
     }
   };
 
+  // Function to trigger send message when pressing "Enter" key
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSendMessage();
     }
   };
 
+  // Scroll to the bottom when new messages are added
+  useEffect(() => {
+    if (chatEndRef.current) {
+      chatEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [conversation]);
+
   return (
     <div className="chat-screen">
-      <div className="brand-symbol"><img src={chatbotIcon} alt="Bot" className="profile-icon" /><p>E-Commerce ChatBot</p></div>
+      <div className="brand-symbol">
+        <img src={chatbotIcon} alt="Bot" className="profile-icon" />
+        <p>E-Commerce ChatBot</p>
+      </div>
       <div className="chat-messages">
         {conversation.map((chat, index) => (
           <div
@@ -90,6 +142,7 @@ const ChatScreen = () => {
             )}
           </div>
         ))}
+        <div ref={chatEndRef} /> {/* This is the reference to scroll to the bottom */}
       </div>
       <div className="input-container">
         <input
