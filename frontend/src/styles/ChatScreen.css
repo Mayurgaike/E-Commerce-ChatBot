@@ -1,0 +1,106 @@
+/* General Styles */
+.chat-screen {
+  font-family: "Gloock", serif;
+  background-color: #cacfcb;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.brand-symbol {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+/* Chat Messages Section */
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin: 60px 0 10px; /* Add vertical space between top and messages */
+  padding: 0 10px;
+}
+
+.message-container {
+  display: flex;
+  align-items: flex-end;
+  margin: 15px 0; /* Add spacing between messages */
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.bot-message {
+  justify-content: flex-start;
+}
+
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+}
+
+.message {
+  background-color: #d9d9d9;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 70%;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.timestamp {
+  display: block;
+  font-size: 12px;
+  color: #676c68;
+  margin-top: 5px;
+}
+
+/* Input Section */
+.input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #cacfcb;
+  border-top: 1px solid #d9d9d9;
+}
+
+.input-container input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 25px;
+  font-family: "Gloock", serif;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.input-container button {
+  background-color: #d9d9d9;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.input-container button:hover {
+  background-color: #bfbfbf;
+}
+
+.send-icon {
+  width: 20px;
+  height: 20px;
+}

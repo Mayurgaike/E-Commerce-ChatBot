@@ -1,0 +1,36 @@
+.home-screen {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  .input-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    padding: 10px;
+  }
+  
+  input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #676c68;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #676c68;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #5a5f5d;
+  }
+  

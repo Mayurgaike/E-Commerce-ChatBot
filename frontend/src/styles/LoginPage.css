@@ -1,0 +1,65 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gloock', serif;
+    background-color: #CACFCB;
+  }
+  
+  .login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #CACFCB;
+  }
+  
+  .login-container {
+    width: 300px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .login-container h1 {
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: black;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #676C68;
+    border-radius: 4px;
+    background-color: #D9D9D9;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #676C68;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #505350;
+  }
+  
