@@ -24,6 +24,7 @@ The **E-Commerce Chatbot AI** is an innovative conversational assistant designed
 ```bash
 git clone <your-git-repo-url>
 cd ecommerce-chatbot-ai
+```
 
 ## **Backend Setup**
 
@@ -45,6 +46,7 @@ python createDatabase.py
 
 # Start the Flask server
 python app.py
+```
 
 ### **For Linux:**
 
@@ -64,6 +66,7 @@ python3 createDatabase.py
 
 # Start the Flask server
 python3 app.py
+```
 
 ## **Frontend Setup**
 
@@ -81,6 +84,7 @@ npm install axios web-vitals
 
 # Start the React app
 npm start
+```
 
 ## **Access the Application**
 
